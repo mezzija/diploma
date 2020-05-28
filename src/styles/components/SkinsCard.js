@@ -14,10 +14,19 @@ const SkinsCardStyle=({palette})=>({
         '& img':{
             width: '60px',
             height:'60px',
-            //display: 'none',
+            cursor:'pointer',
         },
         '& p':{
             marginBottom:'20px',
+        },
+
+    },
+    active:{
+        '& img':{
+            display: 'none',
+        },
+        '& p':{
+            marginBottom:'0',
         }
     },
 

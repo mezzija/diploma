@@ -12,7 +12,6 @@ const LevelGameStyles=({palette})=>({
         textAlign:'center',
         padding:'8px 0 8px 0',
         border:'2px solid #000000',
-        cursor:'pointer',
         '& a':{
             fontSize: '1.5rem',
             marginBottom: '35px',
@@ -20,6 +19,15 @@ const LevelGameStyles=({palette})=>({
         },
         '& p':{
             marginBottom:'20px',
+        },
+
+    },
+    active:{
+        '& a':{
+            display: 'none',
+        },
+        '& p':{
+            marginBottom:'0',
         }
     }
 
