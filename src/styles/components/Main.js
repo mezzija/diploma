@@ -1,16 +1,16 @@
 import {createUseStyles} from 'react-jss';
 
 const MainStyles=()=>({
-    wrapper1:{
+    easy:{
         height:'100%',
         padding:'10px',
         display:'grid',
         gridTemplateColumns: 'repeat(5, 1fr)',
-        gridTemplateRows:'1fr 1 fr',
+        gridTemplateRows:'repeat(2,1fr)',
         gridGap:'1em',
 
     },
-    wrapper2:{
+    medium:{
         height:'100%',
         padding:'10px',
         display:'grid',
@@ -18,9 +18,9 @@ const MainStyles=()=>({
         gridTemplateRows:'repeat(3,1fr)',
         gridGap:'1em',
     },
-    wrapper3:{
+    hard:{
         height:'100%',
-        padding:'10px',
+        padding:'30px',
         display:'grid',
         gridTemplateColumns: 'repeat(8, 1fr)',
         gridTemplateRows:'repeat(3,1fr)',

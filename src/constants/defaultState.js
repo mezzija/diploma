@@ -1,9 +1,12 @@
 export const startState={
     play:false,
-    skins:{
-        mode:1,
-    },
-    difficulty:{
-        mode:1,
-    }
+    skins: 'skinProgramming',
+    difficulty: 'easy',
 }
+export const activeCardState={
+    equalCards:[],
+    idDisable:'',
+    disable:false,
+
+
+};
