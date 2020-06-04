@@ -23,7 +23,7 @@ export default {
             white: '#ffffff',
         },
         primary:{
-            main: '#fff100',
+            main: '#fddd09',
         },
         secondary:{
             main: '#d8d8d8',

@@ -1,9 +1,10 @@
 import React,{useEffect,useState} from 'react';
 import {useSelector} from "react-redux";
 const shortId = require('shortid');
+import CloneDeep from 'lodash.clonedeep';
 //image
 import skin1 from '../constants/skin1'
-import {tms} from '../constants/logo'
+
 //component
 import Card from "./Card.jsx";
 //style
@@ -33,7 +34,38 @@ const Main=()=>{
             setCurrentSkins(shuffle([...skins,...skins].map(item=>({src:item,status:'closed',key:shortId.generate()}))));
         }
     },[play]);
-    console.log(currentSkins);
+
+
+    const changeStatus=(key)=>{
+        const newState=CloneDeep(currentSkins);
+        const openCard=newState.find(item=>item.status==='opened');
+        const currentCard=newState.find(item=>item.key===key);
+        if(openCard){
+            if(openCard.src===currentCard.src){
+                newState.forEach(item=>{
+                    if (item===openCard) item.status='disable';
+                    if(item===currentCard) item.status='disable';
+                })
+            }else{
+                newState.forEach(item=>{
+                    if (item===openCard) item.status='closed';
+                    if(item===currentCard) item.status='closed';
+                })
+            }
+            setTimeout(()=> {
+                setCurrentSkins(newState)
+            },1000);
+        }else{
+            newState.forEach(item=>{
+                if(item.key===key){
+                    item.status='opened';
+                }
+            })
+            setCurrentSkins(newState);
+        }
+
+    }
+
     return(
         <>
             {
@@ -43,8 +75,8 @@ const Main=()=>{
                         {currentSkins.map(item=>(
                             <Card
                                 key={item.key}
-                                skin={item.src}
-                                front={tms}
+                                skin={item}
+                                changeStatus={changeStatus}
                             />
                         ))
                         }
