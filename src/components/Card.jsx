@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect,memo} from 'react';
 import ClassNames from 'classnames';
 //style
 import useStyle from '../styles/components/Card';
@@ -32,6 +32,7 @@ const Card=(props)=>{
         }
 
     };
+
     return(
         <div className={classes.flipCard}>
             <div onClick={handleClick} className={ClassNames(classes.flipCardInner,{[classes.active]:state.active,[classes.disable]:state.disable})}>
@@ -46,5 +47,6 @@ const Card=(props)=>{
         </div>
     )
 };
+Card.displayName = 'Card';
 
-export default Card;
+export default memo(Card);

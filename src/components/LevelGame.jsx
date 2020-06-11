@@ -25,4 +25,6 @@ const LevelGame=()=>{
         </div>
     )
 }
+LevelGame.displayName = 'LevelGame';
+
 export default LevelGame;

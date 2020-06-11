@@ -1,9 +1,12 @@
 import React from 'react';
+import {useSelector} from "react-redux";
+import {hot} from 'react-hot-loader/root';
 //components
-import Main from "./Main.jsx";
-import SkinsCard from "./SkinsCard.jsx";
-import LevelGame from "./LevelGame.jsx";
-import ButtonNewGame from "./ButtonNewGame.jsx";
+import Main from "./Main";
+import SkinsCard from "./SkinsCard";
+import LevelGame from "./LevelGame";
+import ButtonNewGame from "./ButtonNewGame";
+import Timer from "./Timer";
 
 //styles
 import RootStyle from "../styles";
@@ -13,7 +16,6 @@ import useStyles from '../styles/components/App';
 const App= ()=>{
     RootStyle();
     const classes=useStyles();
-
     return(
         <>
             <div className={classes.row}>
@@ -22,6 +24,10 @@ const App= ()=>{
                     <LevelGame/>
 
                 </div>
+                <div>
+                    <Timer/>
+                </div>
+
                 <div className={classes.positionButton}>
                     <ButtonNewGame/>
                 </div>
@@ -33,5 +39,5 @@ const App= ()=>{
         </>
     )
 }
-
-export default App;
+App.displayName = 'App';
+export default hot(App);

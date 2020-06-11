@@ -8,6 +8,13 @@ module.exports = {
         'react-hot-loader/patch',
         path.resolve(__dirname, '../src/index.jsx')
     ],
+    resolve: {
+        modules: [
+            path.resolve(__dirname, '../src'),
+            path.resolve(__dirname, '../node_modules'),
+        ],
+        extensions: ['.js', '.jsx', '.json'],
+    },
     module: {
         rules: [
             {

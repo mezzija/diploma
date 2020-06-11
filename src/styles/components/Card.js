@@ -20,6 +20,7 @@ const CardStyle =({palette})=>({
         boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
         cursor:'pointer',
         backgroundColor: '#1d1d1b',
+
     },
     flipCardFront:{
         backgroundColor: '#1d1d1b',
@@ -49,9 +50,12 @@ const CardStyle =({palette})=>({
     active:{
         transform:' rotateY(180deg)',
     },
+
     disable:{
         display:'none',
-    }
+
+    },
+
 
 
 });

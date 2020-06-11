@@ -7,6 +7,7 @@ import useStyles from '../styles/components/SkinsCard'
 import {logo1,logo2,logo3} from '../constants/logo';
 //action
 import {changeSkins} from "../action";
+import Main from "./Main";
 
 const SkinsCard=()=>{
     const classes=useStyles();
@@ -32,4 +33,7 @@ const SkinsCard=()=>{
 
 
 }
+
+SkinsCard.displayName = 'SkinsCard';
+
 export default SkinsCard;

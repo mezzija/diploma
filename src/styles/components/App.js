@@ -1,4 +1,6 @@
 import {createUseStyles} from 'react-jss';
+
+
 const AppStyles=({palette})=>({
     mainSize:{
         backgroundColor:palette.background.main,
@@ -14,8 +16,6 @@ const AppStyles=({palette})=>({
         justifyContent:'space-between',
         position:'absolute',
         top:'5px',
-
-
     },
     positionSettings:{
         display:'flex',
@@ -26,8 +26,7 @@ const AppStyles=({palette})=>({
     positionButton:{
         position: 'relative',
         right:'3%'
-    }
-
+    },
 });
 
 export default createUseStyles(AppStyles,{name:"App",index:200});
