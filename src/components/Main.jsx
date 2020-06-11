@@ -16,18 +16,19 @@ const Main = () => {
 
     const classes = useStyle();
     const [currentSkins, setCurrentSkins] = useState([]);
-    const [active,setActive]=useState(false)
-    const level = useSelector(store => store.start.difficulty);// сделать один обьект
-    const play = useSelector(store => store.start.play);
+    const [active, setActive] = useState(false);
+    const [counter,setCounter]=useState(0);
+    const {difficulty,play}=useSelector(store=>store.start)
+    const skin = [...skin1];
 
-    const skin = [...skin1]
+
 
     useEffect(() => {
         if (play) {
             let skins = [...skin];
-            if (level === 'easy') {
+            if (difficulty === 'easy') {
                 skins = skins.slice(0, 5);
-            } else if (level === 'medium') {
+            } else if (difficulty === 'medium') {
                 skins = skins.slice(0, 9);
             }
             setCurrentSkins(shuffle([...skins, ...skins].map(item => ({
@@ -39,50 +40,52 @@ const Main = () => {
         }
     }, [play]);
 
-    useEffect(()=>{
-        if(active){
-            setTimeout(changeOpened,1000);
+    useEffect(() => {
+        if (active) {
+            setTimeout(changeOpened, 1000);
         }
-    },[active])
+    }, [active])
 
-    const  changeOpened=()=>{
+    const changeOpened = () => {
         const newState = CloneDeep(currentSkins);
         const openCard = newState.filter(item => item.status === true);
-        if(openCard[0].src===openCard[1].src) {
-            newState.forEach(item=>{
-                if(item===openCard[0]){
-                    item.disable=true;
-                    item.status=false;
+        if (openCard[0].src === openCard[1].src) {
+            newState.forEach(item => {
+                if (item === openCard[0]) {
+                    item.disable = true;
+                    item.status = false;
                 }
-                if(item===openCard[1]){
-                    item.disable=true;
-                    item.status=false;
+                if (item === openCard[1]) {
+                    item.disable = true;
+                    item.status = false;
                 }
             })
-        }else {
-            newState.forEach(item=>{
-                if(item===openCard[0]) item.status=false;
-                if(item===openCard[1]) item.status=false;
+        } else {
+            newState.forEach(item => {
+                if (item === openCard[0]) item.status = false;
+                if (item === openCard[1]) item.status = false;
             })
         }
         setActive(false);
         setCurrentSkins(newState);
+        setCounter(0);
     }
 
     const changeStatus = (key) => {
+        setCounter(prevState => prevState+1);
         const newState = CloneDeep(currentSkins);
         const openCard = newState.find(item => item.status === true);
         const currentCard = newState.find(item => item.key === key);
         if (openCard) {
             if (openCard.src === currentCard.src) {
                 newState.forEach(item => {
-                    if (item ===currentCard) {
+                    if (item === currentCard) {
                         item.status = true;
                     }
                 });
             } else {
                 newState.forEach(item => {
-                    if (item ===currentCard) {
+                    if (item === currentCard) {
                         item.status = true;
                     }
                 });
@@ -99,19 +102,18 @@ const Main = () => {
         }
     }
 
-    console.log(currentSkins)
-
     return (
         <>
             {
                 play
                     ?
-                    <div className={classes[level]}>
+                    <div className={classes[difficulty]}>
                         {currentSkins.map(item => (
                             <Card
                                 key={item.key}
                                 skin={item}
                                 changeStatus={changeStatus}
+                                counter={counter}
                             />
                         ))
                         }
@@ -134,13 +136,3 @@ Main.displayName = 'Main';
 
 export default Main;
 
-/*newState.forEach(item => {
-                    if (item === openCard) item.disable = true;
-                    if (item === currentCard) item.disable = true;
-})
-setCurrentSkins(newState)*/
-/*newState.forEach(item => {
-                    if (item === openCard) item.status = false;
-                    if (item === currentCard) item.status = false;
-})
-setCurrentSkins(newState)*/

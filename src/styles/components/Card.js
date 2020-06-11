@@ -14,7 +14,7 @@ const CardStyle =({palette})=>({
         position: 'relative',
         width: '100%',
         height: '100%',
-        //textAlign: 'center',
+        textAlign: 'center',
         transition: 'transform 0.6s',
         transformStyle: 'preserve-3d',
         boxShadow: '0 4px 8px 0 rgba(0,0,0,0.2)',
@@ -27,7 +27,6 @@ const CardStyle =({palette})=>({
         position: 'absolute',
         width: '100%',
         height: '100%',
-        //'-webkit-backface-visibility':' hidden',
         webkitBackfaceVisibility:' hidden',
         backfaceVisibility: 'hidden',
         display: 'flex',
@@ -52,7 +51,19 @@ const CardStyle =({palette})=>({
     },
 
     disable:{
-        display:'none',
+
+        animation:'$disable 2s linear',
+        animationFillMode: 'forwards',
+
+
+    },
+    '@keyframes disable':{
+        '0%': {opacity:'1'},
+        '30%':{opacity:'0.7'},
+        '50%':{opacity:'0.5'},
+        '70%':{opacity:'0.3'},
+        '90%': {opacity:'0',width:'100%',height:'100%'},
+        '100%':{width:0,height:0,opacity:'0'},
 
     },
 
