@@ -29,6 +29,9 @@ const SkinsCardStyle=({palette})=>({
             marginBottom:'0',
         }
     },
+    activeButton:{
+        border:'2px solid #000000',
+    }
 
 })
 export default createUseStyles(SkinsCardStyle,{name:'SkinsCard',index:300});

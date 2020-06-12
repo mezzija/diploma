@@ -52,7 +52,7 @@ const CardStyle =({palette})=>({
 
     disable:{
 
-        animation:'$disable 2s linear',
+        animation:'$disable 0.9s linear',
         animationFillMode: 'forwards',
 
 

@@ -29,6 +29,9 @@ const LevelGameStyles=({palette})=>({
         '& p':{
             marginBottom:'0',
         }
+    },
+    activeButton:{
+        color:'#ffffff',
     }
 
 })
