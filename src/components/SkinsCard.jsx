@@ -13,9 +13,11 @@ const SkinsCard=()=>{
     const classes=useStyles();
     const active=useSelector(store=>store.start.play);
     const dispatch=useDispatch();
+
     const skinProgramming=useRef(null);
     const skinJs=useRef(null);
     const skinMystery=useRef(null);
+
     const handleClick=(event)=>{
         skinProgramming.current.classList.remove(classes.activeButton);
         skinJs.current.classList.remove(classes.activeButton);
@@ -24,6 +26,7 @@ const SkinsCard=()=>{
         event.target.classList.add(classes.activeButton)
         dispatch(changeSkins(event.target.id))
     }
+
     return(
         <div className={ClassNames(classes.skinCardStyle,{[classes.active]:active})}>
             <p>Skins card</p>

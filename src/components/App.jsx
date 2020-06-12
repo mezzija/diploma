@@ -7,6 +7,7 @@ import SkinsCard from "./SkinsCard";
 import LevelGame from "./LevelGame";
 import ButtonNewGame from "./ButtonNewGame";
 import Timer from "./Timer";
+import ModalLogin from "./ModalLogin";
 
 //styles
 import RootStyle from "../styles";
@@ -18,6 +19,7 @@ const App= ()=>{
     const classes=useStyles();
     return(
         <>
+            <ModalLogin/>
             <div className={classes.row}>
                 <div className={classes.positionSettings}>
                     <SkinsCard/>
@@ -35,6 +37,7 @@ const App= ()=>{
             <div className={classes.mainSize}>
                 <Main />
             </div>
+
 
         </>
     )

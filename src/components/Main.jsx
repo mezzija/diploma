@@ -17,10 +17,9 @@ const Main = () => {
     const classes = useStyle();
     const [currentSkins, setCurrentSkins] = useState([]);
     const [active, setActive] = useState(false);
-    const [counter,setCounter]=useState(0);
-    const {difficulty,play}=useSelector(store=>store.start)
+    const [counter, setCounter] = useState(0);
+    const {difficulty, play} = useSelector(store => store.start)
     const skin = [...skin1];
-
 
 
     useEffect(() => {
@@ -72,7 +71,7 @@ const Main = () => {
     }
 
     const changeStatus = (key) => {
-        setCounter(prevState => prevState+1);
+        setCounter(prevState => prevState + 1);
         const newState = CloneDeep(currentSkins);
         const openCard = newState.find(item => item.status === true);
         const currentCard = newState.find(item => item.key === key);

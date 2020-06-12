@@ -1,2 +1,2 @@
 export * from './gameModeAction';
-export * from './logicGameAction';
+export * from './userAction'

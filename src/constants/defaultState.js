@@ -3,10 +3,6 @@ export const startState={
     skins: 'skinProgramming',
     difficulty: 'easy',
 }
-export const activeCardState={
-    equalCards:[],
-    idDisable:'',
-    disable:false,
-
-
-};
+export const userState={
+    login:'',
+}

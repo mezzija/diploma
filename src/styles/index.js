@@ -19,6 +19,9 @@ const RootStyle = ({typography, palette}) => ({
             textDecoration: 'none',
             color: palette.text.primary,
         },
+        input:{
+            outline: '0',
+        }
 
     }
 })
