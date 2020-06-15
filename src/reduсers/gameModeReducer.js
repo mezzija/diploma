@@ -7,7 +7,7 @@ import {startGame,changeSkins,changeDifficulty} from '../action'
 export default {
     start:handleActions({
         [startGame]:(store)=> ({...store,play :!store.play}),
-        [changeSkins]:(store,{payload=''})=>({...store,skins:payload}),
+        [changeSkins]:(store,{payload=''})=>({...store,skinCard:payload}),
         [changeDifficulty]:(store,{payload=''})=>({...store,difficulty:payload}),
     },startState)
 

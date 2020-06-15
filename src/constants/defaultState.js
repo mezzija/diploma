@@ -1,6 +1,6 @@
 export const startState={
     play:false,
-    skins: 'skinProgramming',
+    skinCard: 'skinProgramming',
     difficulty: 'easy',
 }
 export const userState={

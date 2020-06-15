@@ -4,10 +4,13 @@ import {useSelector} from "react-redux";
 const shortId = require('shortid');
 import CloneDeep from 'lodash.clonedeep';
 //image
-import skin1 from '../constants/skin1'
+import skin1 from '../constants/skin1';
+import skin2 from "../constants/skin2";
+import skin3 from "../constants/skin3";
 
 //component
 import Card from "./Card.jsx";
+import StartWindow from "./StartWindow";
 //style
 import useStyle from '../styles/components/Main'
 
@@ -18,8 +21,14 @@ const Main = () => {
     const [currentSkins, setCurrentSkins] = useState([]);
     const [active, setActive] = useState(false);
     const [counter, setCounter] = useState(0);
-    const {difficulty, play} = useSelector(store => store.start)
-    const skin = [...skin1];
+
+    const {difficulty, play,skinCard} = useSelector(store => store.start);
+
+    let skin=[];
+    if(skinCard==="skinProgramming") skin=[...skin1];
+    else if(skinCard==="skinJs") skin=[...skin2];
+    else if(skinCard==="skinMystery") skin=[...skin3];
+
 
 
     useEffect(() => {
@@ -103,23 +112,22 @@ const Main = () => {
 
     return (
         <>
-            {
-                play
-                    ?
-                    <div className={classes[difficulty]}>
-                        {currentSkins.map(item => (
-                            <Card
-                                key={item.key}
-                                skin={item}
-                                changeStatus={changeStatus}
-                                counter={counter}
-                            />
-                        ))
-                        }
-                    </div>
-                    :
-                    <p>hello</p>
-            }
+            {play
+                ?
+                <div className={classes[difficulty]}>
+                    {currentSkins.map(item => (
+                        <Card
+                            key={item.key}
+                            skin={item}
+                            changeStatus={changeStatus}
+                            counter={counter}
+                        />
+                    ))
+                    }
+                </div>
+                :
+                <StartWindow/>
+        }
         </>
 
     )
