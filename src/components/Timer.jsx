@@ -24,7 +24,7 @@ const Timer = () => {
         }
 
     }, [play,time]);
-    console.log(history.location.pathname);
+
     return (
         <div className={classes.timerStyle}>
             <p>{moment(time).format('mm:ss')}</p>

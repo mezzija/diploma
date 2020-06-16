@@ -2,7 +2,9 @@ import React from 'react';
 import {useSelector} from "react-redux";
 //style
 import useStyles from '../styles/components/StartWindow';
-import logo from '../assets/images/tmsLogo.png'
+
+import {logo} from '../constants/logo';
+
 const StartWindow=()=>{
     const classes=useStyles();
     const user=useSelector(store=>store.user)
