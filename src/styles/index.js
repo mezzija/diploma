@@ -10,6 +10,10 @@ const RootStyle = ({typography, palette}) => ({
             margin: '0',
             fontFamily: typography.fontFamily,
             fontWeight: typography.fontWeightBold,
+
+        },
+        html:{
+            overflowY: 'hidden',
         },
         body: {
             fontSize: typography.fontSize,

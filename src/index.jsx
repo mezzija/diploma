@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import {ThemeProvider} from 'react-jss'
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import { BrowserRouter } from 'react-router-dom';
 
 //component
 import App from "./components/App.jsx";
@@ -16,7 +17,9 @@ ReactDOM.render(
         <Provider store={store}>
             <PersistGate loading={null} persistor={persistor} >
                 <ThemeProvider theme={main}>
-                    <App/>
+                    <BrowserRouter>
+                        <App/>
+                    </BrowserRouter>
                 </ThemeProvider>
             </PersistGate>
         </Provider>

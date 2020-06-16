@@ -1,5 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import {useSelector} from "react-redux";
+import {
+    Switch,
+    Route
+} from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const shortId = require('shortid');
 import CloneDeep from 'lodash.clonedeep';
@@ -11,12 +16,13 @@ import skin3 from "../constants/skin3";
 //component
 import Card from "./Card.jsx";
 import StartWindow from "./StartWindow";
+import FinishWindow from "./FinishWindow";
 //style
 import useStyle from '../styles/components/Main'
 
 
 const Main = () => {
-
+    const  history=useHistory();
     const classes = useStyle();
     const [currentSkins, setCurrentSkins] = useState([]);
     const [active, setActive] = useState(false);
@@ -29,7 +35,14 @@ const Main = () => {
     else if(skinCard==="skinJs") skin=[...skin2];
     else if(skinCard==="skinMystery") skin=[...skin3];
 
-
+    useEffect(()=>{
+        const finish=currentSkins.filter(item=>item.disable===true)
+        if(play){
+            if(finish.length===currentSkins.length){
+                history.push('/finish');
+            }
+        }
+    },[currentSkins])
 
     useEffect(() => {
         if (play) {
@@ -111,9 +124,11 @@ const Main = () => {
     }
 
     return (
-        <>
-            {play
-                ?
+        <Switch>
+            <Route path="/" exact>
+                <StartWindow/>
+            </Route>
+            <Route path="/game">
                 <div className={classes[difficulty]}>
                     {currentSkins.map(item => (
                         <Card
@@ -125,10 +140,11 @@ const Main = () => {
                     ))
                     }
                 </div>
-                :
-                <StartWindow/>
-        }
-        </>
+            </Route>
+            <Route path="/finish">
+                <FinishWindow/>
+            </Route>
+        </Switch>
 
     )
 }
