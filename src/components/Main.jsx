@@ -93,12 +93,14 @@ const Main = () => {
     }
 
     const changeStatus = (key) => {
-        setCounter(prevState => prevState + 1);
         const newState = CloneDeep(currentSkins);
+        const check=newState.filter(item=>item.status===false)
         const openCard = newState.find(item => item.status === true);
         const currentCard = newState.find(item => item.key === key);
-        if (openCard) {
-            if (openCard.src === currentCard.src) {
+        debugger
+        if (openCard && openCard.key!==currentCard.key) {
+            setCounter(prevState => prevState + 1);
+            if (openCard.src === currentCard.src ) {
                 newState.forEach(item => {
                     if (item === currentCard) {
                         item.status = true;
@@ -113,7 +115,8 @@ const Main = () => {
             }
             setActive(true);
             setCurrentSkins(newState)
-        } else {
+        } else if(check.length===newState.length){
+            setCounter(prevState => prevState + 1);
             newState.forEach(item => {
                 if (item.key === key) {
                     item.status = true;
@@ -122,7 +125,6 @@ const Main = () => {
             setCurrentSkins(newState);
         }
     }
-
     return (
         <Switch>
             <Route path="/" exact>
