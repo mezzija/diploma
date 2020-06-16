@@ -1,13 +1,16 @@
 import React, {useEffect, useState} from 'react';
-import {useSelector} from "react-redux";
+import {useSelector,useDispatch} from "react-redux";
 import moment from 'moment';
 import { useHistory } from "react-router-dom";
 //style
-import useStyles from '../styles/components/Timer'
+import useStyles from '../styles/components/Timer';
+//action
+import {timeGame} from "../action";
 
 
 const Timer = () => {
     const classes = useStyles();
+    const dispatch=useDispatch();
     const [time,setTime]=useState(0);
     const play = useSelector(store => store.start.play);
     const  history=useHistory();
@@ -19,8 +22,8 @@ const Timer = () => {
             } else {
                 setTime(0)
             }
-        }else if (history.location.pathname){
-
+        }else if (history.location.pathname==='/finish'){
+            dispatch(timeGame(moment(time).format('mm:ss')))
         }
 
     }, [play,time]);

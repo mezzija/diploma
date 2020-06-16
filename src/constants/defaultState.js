@@ -6,3 +6,4 @@ export const startState={
 export const userState={
     login:'',
 }
+export const timeGameState='';
