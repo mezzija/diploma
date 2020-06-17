@@ -9,5 +9,6 @@ import js8 from '../assets/images/2.8.png';
 import js9 from '../assets/images/2.9.png';
 import js10 from '../assets/images/2.10.png';
 import js11 from '../assets/images/2.11.png';
-import js12 from '../assets/images/2.12.png'
-export default [js1,js2,js3,js4,js5,js6,js7,js8,js9,js10,js11,js12];
+import js12 from '../assets/images/2.12.png';
+
+export default [js1, js2, js3, js4, js5, js6, js7, js8, js9, js10, js11, js12];

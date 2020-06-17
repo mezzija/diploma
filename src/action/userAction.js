@@ -1,10 +1,8 @@
-import {createActions} from 'redux-actions';
+import { createActions } from 'redux-actions';
 
 export const {
-   addUser,
+  addUser,
 } = createActions(
-    'ADD_USER',
+  'ADD_USER',
 
 );
-
-

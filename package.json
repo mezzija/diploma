@@ -6,6 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --config config/webpack.dev.js",
     "build": "webpack --config config/webpack.prod.js",
+    "lint": "eslint  --ext .jsx --ext .js config src -o ./test/test.html -f html --fix",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -28,7 +29,13 @@
     "babel-loader": "^8.1.0",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.4.2",
-    "eslint": "^7.1.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^2.5.1",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.0.0",
     "react-hot-loader": "^4.12.20",

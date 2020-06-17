@@ -9,5 +9,6 @@ import an8 from '../assets/images/3.8.jpg';
 import an9 from '../assets/images/3.9.jpg';
 import an10 from '../assets/images/3.10.jpg';
 import an11 from '../assets/images/3.11.jpg';
-import an12 from '../assets/images/3.12.png'
-export default [an1,an2,an3,an4,an5,an6,an7,an8,an9,an10,an11,an12]
+import an12 from '../assets/images/3.12.png';
+
+export default [an1, an2, an3, an4, an5, an6, an7, an8, an9, an10, an11, an12];

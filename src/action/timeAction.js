@@ -1,9 +1,7 @@
-import {createActions} from 'redux-actions';
+import { createActions } from 'redux-actions';
 
 export const {
-    timeGame,
+  timeGame,
 } = createActions(
-    'TIME_GAME'
+  'TIME_GAME',
 );
-
-

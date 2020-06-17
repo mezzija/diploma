@@ -11,4 +11,4 @@ import ruby from '../assets/images/ruby.png';
 import swift from '../assets/images/swift.png';
 import ts from '../assets/images/ts.png';
 
-export default [js,cSharp,nodejs,c,css,html,java,php,python,ruby,swift,ts];
+export default [js, cSharp, nodejs, c, css, html, java, php, python, ruby, swift, ts];
